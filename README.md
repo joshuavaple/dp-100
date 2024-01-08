@@ -1,2 +1,2 @@
-# dp100
-preparation for dp100 exam
+# dp-100
+preparation for dp-100 exam
