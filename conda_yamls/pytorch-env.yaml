@@ -1,0 +1,8 @@
+name: pytorch-env
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.6.2
+  - pytorch
+  - torchvision
