@@ -20,7 +20,7 @@ def main():
     mlflow.start_run()
     print(" ".join(f"{k}={v}" for k, v in vars(args).items()))
     print("input data:", args.data)
-    df_titanic = pd.read_csv(args.data, header=1, index_col=0)
+    df_titanic = pd.read_csv(args.data)
     mlflow.log_metric("num_samples", df_titanic.shape[0])
     mlflow.log_metric("num_features", df_titanic.shape[1] - 1)
     df_titanic_train, df_titanic_test = train_test_split(df_titanic,
