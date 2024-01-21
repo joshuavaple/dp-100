@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 import os
 import pandas as pd
 import mlflow
+from src.utilities import select_first_file, prepare_features, features
 
 # Helper Functions
 def select_first_file(path):
@@ -48,7 +49,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--train_data", type=str, help="path to train data")
     parser.add_argument("--test_data", type=str, help="path to test data")
-    parser.add_argument("--n_estimators", required=False, default=100, type=int)
     parser.add_argument("--C", required=False, default=1, type=float)
     parser.add_argument("--registered_model_name", type=str, help="model name")
     parser.add_argument("--model", type=str, help="path to model file")
@@ -68,7 +68,7 @@ def main():
 
     # Training and evaluating the model:
     print(f"Training with data of shape {X_train.shape}")
-    model = LogisticRegression(max_iter=1000)
+    model = LogisticRegression(max_iter=1000, C=args.C)
     model.fit(X_train, y)
     y_pred = model.predict(X_test)
     print("Classification Report:")
