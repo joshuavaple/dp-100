@@ -2,3 +2,5 @@ venv/
 *.env
 *.pyc
 **/*egg-info/
+**/*mlruns/
+**/*cifar*

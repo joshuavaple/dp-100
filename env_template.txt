@@ -1,0 +1,7 @@
+# change to .env file extension
+# refer to secret values from workspace key vault
+AZURE_CLIENT_SECRET = <>
+AZURE_CLIENT_SECRET_ID = <>
+AZURE_CLIENT_ID = <>
+AZURE_TENANT_ID = <>
+STORAGE_ACC_SAS_TOKEN = <>
