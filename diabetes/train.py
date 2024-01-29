@@ -8,6 +8,8 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 
+
+# 1. The main "application" steps
 def main(args):
     # read data
     df = get_data(args.training_data)
@@ -21,11 +23,29 @@ def main(args):
     # evaluate model
     eval_model(model, X_test, y_test)
 
+# 2. The function to take user's arguments and parse them to be used later
+def parse_args():
+    # setup arg parser
+    parser = argparse.ArgumentParser()
+
+    # add arguments
+    # "dest" is not a must to have
+    parser.add_argument("--training_data", dest='training_data',
+                        type=str)
+    parser.add_argument("--reg_rate", dest='reg_rate',
+                        type=float, default=0.01)
+
+    # parse args
+    args = parser.parse_args()
+
+    # return args
+    return args
+
+# 3. The supporting function definitions that use the arguments from parse_args()
 # function that reads the data
 def get_data(path):
     print("Reading data...")
     df = pd.read_csv(path)
-    
     return df
 
 # function that splits the data
@@ -67,23 +87,8 @@ def eval_model(model, X_test, y_test):
     plt.ylabel('True Positive Rate')
     plt.title('ROC Curve')
 
-def parse_args():
-    # setup arg parser
-    parser = argparse.ArgumentParser()
 
-    # add arguments
-    parser.add_argument("--training_data", dest='training_data',
-                        type=str)
-    parser.add_argument("--reg_rate", dest='reg_rate',
-                        type=float, default=0.01)
-
-    # parse args
-    args = parser.parse_args()
-
-    # return args
-    return args
-
-# run script
+# 4. run script
 if __name__ == "__main__":
     # add space in logs
     print("\n\n")
