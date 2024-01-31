@@ -26,11 +26,12 @@ def main(args):
     # evaluate model
     eval_model(model, X_test, y_test)
 
-    # log model
-    mlflow.sklearn.log_model(sk_model=model,
-                             registered_model_name=args.registered_model_name,
-                             artifact_path=args.registered_model_name,
-                             )    
+    # log model -> not necessary as we are using autolog, which will log the model under the "model" folder
+    # using this will create another set of artifacts in a folder named after "registered_model_name" argument
+    # mlflow.sklearn.log_model(sk_model=model,
+    #                          registered_model_name=args.registered_model_name,
+    #                          artifact_path=args.registered_model_name,
+    #                          )    
 
 # 2. The function to take user's arguments and parse them to be used later
 def parse_args():
