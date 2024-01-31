@@ -1,0 +1,20 @@
+artifact_path: diabetes_classification_model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.0
+mlflow_version: 2.9.2
+model_size_bytes: 776
+model_uuid: f627256a5dd149a98e5d3fd492c65855
+run_id: sincere_whale_zrpg2nczf2_2
+utc_time_created: '2024-01-31 03:51:30.344593'
